@@ -5,14 +5,14 @@ export default function handler(req, res) {
     return res.status(405).send("Only POST allowed");
   }
 
-  const chatId = req.query.chat_id;
+  const userId = req.query.user_id;
   const token = req.headers["authorization"];
 
   const payload = JSON.stringify(req.body);
 
   const options = {
     hostname: "platform-api2.max.ru",
-    path: "/messages?chat_id=" + chatId,
+    path: "/messages?user_id=" + userId,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
